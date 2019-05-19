@@ -1,0 +1,24 @@
+reg 
+auth ad3std@gmail.com <@Mx5|w)-Q
+
+insert {"key":"Карлсон"}  {"name":"Карлсон","flyingType":true,"gender":"Male","boots":"Sneakers","state":"Relaxed","countNotGiveUp":0,"standOn":"Asphalt","x":"2","y":"3"}
+
+insert ad3std@gmail.com <@Mx5|w)-Q {"key":"Она"}  {"name":"Настя","flyingType":true,"gender":"Female","boots":"Sneakers","state":"Relaxed","countNotGiveUp":0,"standOn":"Asphalt","x":"2","y":"3"}
+
+show ad3std@gmail.com <@Mx5|w)-Q
+
+info ad3std@gmail.com <@Mx5|w)-Q
+
+remove {"key":"Она"}  {"name":"Настя","flyingType":true,"gender":"Female","boots":"Sneakers","state":"Relaxed","countNotGiveUp":0,"standOn":"Asphalt","x":"2","y":"3"}
+
+remove ad3std@gmail.com <@Mx5|w)-Q {"key":"Карлсон"}  {"name":"Карлсон","flyingType":true,"gender":"Male","boots":"Sneakers","state":"Relaxed","countNotGiveUp":0,"standOn":"Asphalt","x":"2","y":"3"}
+
+remove_greater_key ad3std@gmail.com <@Mx5|w)-Q {"key":"Карлсон"}
+remove_greater_key ad3std@gmail.com <@Mx5|w)-Q {"key":"Х"}
+
+insert uriy@yuran.us 8TL|O8jHZl {"key":"Она"}  {"name":"Настя","flyingType":true,"gender":"Female","boots":"Sneakers","state":"Relaxed","countNotGiveUp":0,"standOn":"Asphalt","x":"2","y":"3"}
+
+auth uriy@yuran.us 8TL|O8jHZl
+
+import C:\Лабы\Программирование\Lab_7/1062.json
+import C:\Лабы\Опд\proga5Lab/text_lab5.txt
