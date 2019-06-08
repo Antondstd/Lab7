@@ -8,8 +8,8 @@ import java.time.OffsetDateTime;
 import java.time.ZoneId;
 
 public class DBInteraction {
-    public static String createUserBd = new String("Create table users(id SERIAL PRIMARY KEY,login TEXT NOT NULL UNIQUE, password TEXT NOT NULL)");
-    public static String createObjectsBd = new String("Create table objects(id SERIAL PRIMARY KEY," +
+    public static String createUserBd = new String("Create TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY,login TEXT NOT NULL UNIQUE, password TEXT NOT NULL)");
+    public static String createObjectsBd = new String("Create TABLE IF NOT EXISTS objects(id SERIAL PRIMARY KEY," +
             "login TEXT NOT NULL," +
             "key TEXT NOT NULL," +
             "name TEXT NOT NULL," +
@@ -28,9 +28,12 @@ public class DBInteraction {
     private static  Statement stmt;
     private static  DatabaseMetaData dbm;
     static Gson gson = new Gson();
-    static final String DB_URL = "jdbc:postgresql://uriy.yuran.us/anton";
-    static final String USER = "anton";
-    static final String PASS = "aCpBSZpf";
+//    static final String DB_URL = "jdbc:postgresql://uriy.yuran.us/anton";
+//    static final String USER = "anton";
+//    static final String PASS = "aCpBSZpf";
+    static final String DB_URL = "jdbc:postgresql://pg/studs";
+    static final String USER = "*****";
+    static final String PASS = "*****";
 
     public DBInteraction() {
 
@@ -63,32 +66,12 @@ public class DBInteraction {
             System.out.println("Failed to make connection to database");
         }
         stmt = null;
-// check if "employee" table is there
         try {
             dbm = con.getMetaData();
-            ResultSet tables = dbm.getTables(null, null, "users", null);
-            if (tables.next()) {
+            stmt = con.createStatement();
+            stmt.execute(createUserBd);
+            stmt.execute(createObjectsBd);
 
-            } else {
-                System.out.println("Нет таблицы пользователей");
-                stmt = con.createStatement();
-                stmt.executeUpdate(createUserBd);
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            dbm = con.getMetaData();
-            ResultSet tables = dbm.getTables(null, null, "objects", null);
-            if (tables.next()) {
-
-            } else {
-                System.out.println("Нет таблицы объектов");
-                stmt = con.createStatement();
-                stmt.executeUpdate(createObjectsBd);
-
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
