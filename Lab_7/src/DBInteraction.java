@@ -32,8 +32,8 @@ public class DBInteraction {
 //    static final String USER = "anton";
 //    static final String PASS = "aCpBSZpf";
     static final String DB_URL = "jdbc:postgresql://pg/studs";
-    static final String USER = "s263971";
-    static final String PASS = "njs298";
+    static final String USER = "*****";
+    static final String PASS = "*****";
 
     public DBInteraction() {
 
